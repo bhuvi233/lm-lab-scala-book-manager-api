@@ -40,4 +40,16 @@ class BookRepository {
     }
   }
 
+  def deleteBook(bookId: Long): Boolean = {
+
+    if(bookList.exists(book => book.id == bookId)) {
+      val bookToBeDeleted = getBook(bookId).get
+      bookList.remove(bookToBeDeleted)
+      true
+    }
+    else {
+      false
+    }
+  }
+
 }
